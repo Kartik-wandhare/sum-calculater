@@ -24,17 +24,42 @@
 .btn{
     font-size: 30px;
     display: block;
-    justify-content: space-around;
+    margin: 0px auto;
+    margin-top: 30px;
+    }
+.btn-container{
+    display: flex;
+    
+
 }
 </style>
 <body>
    <div class="calculater-body">
     <h1 class="heading">sum-calculater</h1>
-    <input type="number" class="number"    placeholder="Enter the first number">
-    <input type="number" class="number"    placeholder="Enter the second number">
-    <p><h2>your answer is:-</h2></p>
-    <button class="btn">Sum</button>
-    <button class="btn">Reset</button>
+    <input type="number" class="number" id="input1" placeholder="Enter the first number">
+    <input type="number" class="number" id="input2" placeholder="Enter the second number">
+    <p id="result">your answer is:-</p>
+    <div class="btn-container">
+    <button class="btn btn-input2" onclick="reset()">Reset</button>
+    <button class="btn btn-input1" onclick="sum()">Sum</button>
+</div>
    </div> 
+   <script>
+    function sum(){
+        const input1Element=document.getElementById("input1");
+        const input2Element=document.getElementById("input2");
+        const resultElement=document.getElementById("result");
+        const total=parseInt(input1Element.value)+parseInt(input2Element.value);
+        resultElement.innerText=`sum:${total}`;
+    }
+    function reset(){
+        const input1Element=document.getElementById("input1");
+        const input2Element=document.getElementById("input2");
+        const resultElement=document.getElementById("result");  
+        input1Element.value=""; 
+        input2Element.value="";
+        resultElement.innerText="-";
+    }
+   </script>
 </body>
 </html>

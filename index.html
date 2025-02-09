@@ -16,10 +16,12 @@
 .heading{
     text-align: center;
 }
-.number{
+.input-box{
     margin: 20px;
+    padding: 5px;
     width: 90%;
     height: 40px;
+    font-size: 20px;
 }
 .btn{
     font-size: 30px;
@@ -36,8 +38,8 @@
 <body>
    <div class="calculater-body">
     <h1 class="heading">sum-calculater</h1>
-    <input type="number" class="number" id="input1" placeholder="Enter the first number">
-    <input type="number" class="number" id="input2" placeholder="Enter the second number">
+    <input type="number" class="input-box" id="input1" placeholder="Enter the first number">
+    <input type="number" class="input-box" id="input2" placeholder="Enter the second number">
     <p id="result">your answer is:-</p>
     <div class="btn-container">
     <button class="btn btn-input2" onclick="reset()">Reset</button>
@@ -49,7 +51,17 @@
         const input1Element=document.getElementById("input1");
         const input2Element=document.getElementById("input2");
         const resultElement=document.getElementById("result");
-        const total=parseInt(input1Element.value)+parseInt(input2Element.value);
+        const num1=input1Element.value;
+        const num2=input2Element.value;
+        if(num1 == "") {
+         alert("Please enter the first number");
+         return;
+        }
+        if(num2 == "") {
+         alert("Please enter the second number");
+         return;
+        }
+        const total=parseInt(num1.value)+parseInt(num2.value);
         resultElement.innerText=`sum:${total}`;
     }
     function reset(){
